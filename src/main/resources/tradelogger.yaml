@@ -1,8 +1,7 @@
 openapi: 3.0.3
 info:
   title: Trade Logger - OpenAPI 3.0
-  description: |-
-    A simple trade log
+  description: A simple trade log
   version: 1.0.11
 externalDocs:
   description: Find out more about Swagger
@@ -32,12 +31,27 @@ paths:
             type: integer
             format: int64
       responses:
-        '200':
+        '201':
           description: successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/trade'
+              examples:
+                'buy ':
+                  value: |-
+                    {
+                      "id": 10,
+                      "ticker": "NFLX",
+                      "status": "bought"
+                    }
+                'sell':
+                  value: |-
+                    {
+                      "id": 11,
+                      "ticker": "NFLX",
+                      "status": "sold"
+                    }
             application/xml:
               schema:
                 $ref: '#/components/schemas/trade'
